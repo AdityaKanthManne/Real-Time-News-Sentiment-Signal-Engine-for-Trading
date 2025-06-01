@@ -1,0 +1,6 @@
+news_api_key: b0bb724177b34954bc78e92412c568e9
+query: bitcoin OR stocks OR inflation
+language: en
+page_size: 25
+buy_threshold: 0.85
+sell_threshold: 0.85
