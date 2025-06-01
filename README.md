@@ -1,25 +1,29 @@
 # 📰 Real-Time News Sentiment Signal Engine for Trading
 
-This project builds an end-to-end real-time sentiment analysis engine for financial news and social media feeds, transforming headlines and tweets into actionable trading signals. The model evaluates the sentiment and triggers alerts or strategy decisions based on changing market tone.
+This project builds a real-time sentiment analysis engine for financial news and social media feeds, transforming headlines and tweets into actionable trading signals. It uses free APIs, open-source libraries, and publicly accessible models to remain fully cost-effective and deployable by individual developers or quant teams.
 
 ---
 
 ## 📌 Key Features
 
-- **Live News Feed Aggregation** from sources like Twitter, Bloomberg headlines, and NewsAPI.
-- **Financial Sentiment Classification** using fine-tuned models like FinBERT or GPT-4.
-- **Signal Generation Engine** that computes rolling sentiment scores and change deltas to identify trading opportunities.
-- **Modular Pipeline**: Data ingestion → Preprocessing → Sentiment scoring → Signal logic → Output triggers.
-- **Backtest Compatibility**: Signal outputs are structured for use in backtesting platforms like Backtrader or Zipline.
+- **Live News Feed Aggregation** from free sources like NewsAPI (free tier) and Twitter API v2 (developer account).
+- **Financial Sentiment Classification** using open-source models like FinBERT on HuggingFace.
+- **Signal Generation Engine** based on rolling sentiment deltas, keyword detection, and ticker-specific news volume.
+- **Modular Pipeline**: Ingestion → Preprocessing → Sentiment scoring → Signal logic → Output triggers.
+- **Backtest-Ready Output**: Signals formatted for easy integration with platforms like Backtrader or Zipline.
 
 ---
 
 ## 🧠 Use Case
 
-Quant funds, prop trading firms, and retail traders increasingly use alternative data such as real-time sentiment to detect early market shifts and alpha opportunities. This project focuses on:
-- Detecting shifts in sentiment across major tickers.
-- Producing tradeable signals on high-impact news.
-- Aligning with volatility spikes or institutional flows.
+This engine is intended for:
+- Quant researchers looking to integrate news sentiment into alpha generation.
+- Retail traders building rule-based strategies.
+- Developers experimenting with alternative data for signal extraction.
+
+It helps identify:
+- Sentiment spikes around major stocks and crypto assets.
+- High-impact news triggers across economic, regulatory, or geopolitical events.
 
 ---
 
@@ -30,7 +34,7 @@ Quant funds, prop trading firms, and retail traders increasingly use alternative
         ↓
 [ Preprocessor & Deduplicator ]
         ↓
-[ Sentiment Scorer (FinBERT / GPT) ]
+[ Sentiment Scorer (FinBERT / HuggingFace) ]
         ↓
 [ Sentiment Delta Engine ]
         ↓
@@ -43,55 +47,56 @@ Quant funds, prop trading firms, and retail traders increasingly use alternative
 
 ## ⚙️ Tech Stack
 
-| Component          | Tool / Library        |
-|-------------------|------------------------|
-| News Feeds        | NewsAPI, Twitter API   |
-| NLP Pipeline      | FinBERT, HuggingFace Transformers, spaCy |
-| Signal Engine     | NumPy, pandas, custom rule logic |
-| Visualizations    | Streamlit / Dash       |
-| Backtesting       | Backtrader (optional)  |
-| Deployment        | Docker, FastAPI (optional) |
+| Component        | Tool / Library                            |
+|-----------------|--------------------------------------------|
+| News Feeds      | NewsAPI (free tier), Twitter API v2 Basic |
+| NLP Pipeline    | HuggingFace Transformers, FinBERT, spaCy  |
+| Signal Engine   | pandas, NumPy, custom Python logic         |
+| Visualizations  | Streamlit (optional)                       |
+| Backtesting     | Backtrader (optional, open-source)         |
+| Deployment      | FastAPI, Docker (optional)                 |
 
 ---
 
 ## 🧪 Example Use Cases
 
-- “$TSLA tanks after Elon tweets about factory delays” → Trigger short sentiment.
-- “Federal Reserve signals rate hike pause” → Positive tone for $QQQ or $SPY.
-- “Bitcoin ETF approval confirmed” → Trigger long BTC or BTC/USD.
+- “$TSLA tanks after Elon tweets about factory delays” → Short signal for TSLA.
+- “Fed signals interest rate pause” → Positive sentiment toward SPY, QQQ.
+- “Bitcoin ETF approval confirmed” → Long BTC or BTC/USD opportunity.
 
 ---
 
 ## 🧰 Setup Instructions
 
 ```bash
-git clone https://github.com/<your-username>/Real-Time-News-Sentiment-Signal-Engine-for-Trading.git
+git clone https://github.com/AdityaKanthManne/Real-Time-News-Sentiment-Signal-Engine-for-Trading.git
 cd Real-Time-News-Sentiment-Signal-Engine-for-Trading
 pip install -r requirements.txt
 ```
 
-You'll need to set up the following API keys:
-- NewsAPI
-- Twitter Developer API (v2)
-- OpenAI or HuggingFace token (for GPT/FinBERT models)
+You'll need to sign up and configure:
+- `NewsAPI` key: [https://newsapi.org](https://newsapi.org)
+- `Twitter Developer API` v2 key: [https://developer.twitter.com](https://developer.twitter.com)
+- HuggingFace token (optional if using hosted models): [https://huggingface.co](https://huggingface.co)
 
 ---
 
 ## 📈 Future Enhancements
 
-- Add visualisation dashboard (Streamlit).
-- Integrate with live trading APIs (e.g., Alpaca, Interactive Brokers).
-- Add Telegram or Slack bot alerts.
-- Implement event clustering for more robust multi-ticker signals.
+- Add Streamlit dashboard for live signal visualization.
+- Add Alpaca (free tier) for paper trading simulation.
+- Implement Telegram or Discord alerts for signals.
+- Introduce event clustering to identify compound risk signals.
 
 ---
 
 ## 📄 License
 
-MIT License © 2025 [Your Name]
+MIT License © 2025 [Aditya Kanth Manne](https://github.com/AdityaKanthManne)
 
 ---
 
 ## 🙌 Contributions
 
-Feel free to open issues or submit PRs to improve the pipeline or models!
+Suggestions, feature requests, and PRs are welcome!  
+Feel free to fork and build your own version of this open-source sentiment engine.
