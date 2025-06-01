@@ -25,3 +25,73 @@ Quant funds, prop trading firms, and retail traders increasingly use alternative
 
 ## 📦 Architecture
 
+```
+[ News & Tweet Feed ]
+        ↓
+[ Preprocessor & Deduplicator ]
+        ↓
+[ Sentiment Scorer (FinBERT / GPT) ]
+        ↓
+[ Sentiment Delta Engine ]
+        ↓
+[ Signal Trigger ]
+        ↓
+[ Alert System / Strategy Output ]
+```
+
+---
+
+## ⚙️ Tech Stack
+
+| Component          | Tool / Library        |
+|-------------------|------------------------|
+| News Feeds        | NewsAPI, Twitter API   |
+| NLP Pipeline      | FinBERT, HuggingFace Transformers, spaCy |
+| Signal Engine     | NumPy, pandas, custom rule logic |
+| Visualizations    | Streamlit / Dash       |
+| Backtesting       | Backtrader (optional)  |
+| Deployment        | Docker, FastAPI (optional) |
+
+---
+
+## 🧪 Example Use Cases
+
+- “$TSLA tanks after Elon tweets about factory delays” → Trigger short sentiment.
+- “Federal Reserve signals rate hike pause” → Positive tone for $QQQ or $SPY.
+- “Bitcoin ETF approval confirmed” → Trigger long BTC or BTC/USD.
+
+---
+
+## 🧰 Setup Instructions
+
+```bash
+git clone https://github.com/<your-username>/Real-Time-News-Sentiment-Signal-Engine-for-Trading.git
+cd Real-Time-News-Sentiment-Signal-Engine-for-Trading
+pip install -r requirements.txt
+```
+
+You'll need to set up the following API keys:
+- NewsAPI
+- Twitter Developer API (v2)
+- OpenAI or HuggingFace token (for GPT/FinBERT models)
+
+---
+
+## 📈 Future Enhancements
+
+- Add visualisation dashboard (Streamlit).
+- Integrate with live trading APIs (e.g., Alpaca, Interactive Brokers).
+- Add Telegram or Slack bot alerts.
+- Implement event clustering for more robust multi-ticker signals.
+
+---
+
+## 📄 License
+
+MIT License © 2025 [Your Name]
+
+---
+
+## 🙌 Contributions
+
+Feel free to open issues or submit PRs to improve the pipeline or models!
